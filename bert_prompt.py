@@ -207,7 +207,7 @@ class Trainer:
                         best_acc = accuracy
                         print("【best accuracy】 {:.4f}".format(best_acc))
                         torch.save(self.model.state_dict(), "output/bert_prompt.pt")
-            break
+
 
     def dev(self, dev_loader):
         self.model.eval()
