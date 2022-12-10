@@ -164,7 +164,7 @@ class Trainer:
                         best_acc = accuracy
                         print("【best accuracy】 {:.4f}".format(best_acc))
                         torch.save(self.model.state_dict(), "output/bert_classification.pt")
-            break
+
 
     def dev(self, dev_loader):
         self.model.eval()
@@ -267,7 +267,7 @@ def main():
 
     trainer = Trainer(args)
 
-    # trainer.train(train_loader, dev_loader)
+    trainer.train(train_loader, dev_loader)
 
     labels = list(label2id.keys())
     ckpt_path = "output/bert_classification.pt"
