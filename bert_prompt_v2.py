@@ -302,7 +302,7 @@ def predict():
     model.load_state_dict(torch.load(ckpt_path, map_location="cpu"))
     model.to(args.device)
     masker = pipeline("fill-mask", model=model, tokenizer=tokenizer)
-    prompt = "情感是[MASK][MASK]。"
+    prompt = "情感是[MASK]。"
     texts = [
       ["银色的罗马高跟鞋，圆球吊饰耳饰单带，个性十足，有非常抢眼！", 1],
       ["稳吾到嘛？", 3],
