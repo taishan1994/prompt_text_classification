@@ -162,11 +162,11 @@ class Trainer:
         return optimizer
 
     def train(self, train_loader, dev_loader=None):
-        self.model.train()
         gloabl_step = 1
         best_acc = 0.
         for epoch in range(1, self.args.epochs + 1):
             for step, batch_data in enumerate(train_loader):
+                self.model.train()
                 label = batch_data["label"].to(self.device)
                 batch_size = label.size(0)
                 input_ids = batch_data["input_ids"].to(self.device)
